@@ -1,5 +1,5 @@
 /* ===== CONFIGURACIÓN ===== */
-const SECRET_PIN = "200429";
+const SECRET_PIN = "2925";
 const WAIT_HOURS = 12;
 const MS = 60 * 60 * 1000;
 
@@ -185,3 +185,4 @@ function startDecorations() {
     setTimeout(() => b.remove(), 15000);
   }, 6000);
 }
+
