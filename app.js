@@ -22,7 +22,7 @@ const remainEl = document.getElementById("remain");
 
 /* ===== TECLADO PIN ===== */
 document.querySelectorAll("[data-k]").forEach(b => b.onclick = () => {
-  if (pin.value.length < 6) pin.value += b.dataset.k;
+  if (pin.value.length < 4) pin.value += b.dataset.k;
 });
 document.getElementById("clear").onclick = () => {
   pin.value = "";
@@ -185,4 +185,5 @@ function startDecorations() {
     setTimeout(() => b.remove(), 15000);
   }, 6000);
 }
+
 
