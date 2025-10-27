@@ -307,25 +307,26 @@ function startDecorations() {
   }, 6000);
 }
 
-/* ===== CONTADOR DE DÍAS ===== */
-
+// ===== CONTADOR DE DÍAS =====
 function updateDayCounter() {
-  const today = new Date();
-  const diffTime = Math.abs(today - START_DATE);
-  const days = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-  const counter = document.getElementById('days-together');
-  const phraseDay = ((days - 1) % window.PHRASES.length) + 1;
-  
-  if (counter) {
-    counter.textContent = days;
-  }
-  
-  const phraseDayEl = document.querySelector('.phrase-day');
-  if (phraseDayEl) {
-    phraseDayEl.textContent = `Frase del día ${phraseDay}`;
-  }
-}
+    const today = new Date();
+    const diffTime = Math.abs(today - START_DATE);
+    const days = Math.floor(diffTime / (1000 * 60 * 60 * 24));
 
+    // Mínimo inicia en 15
+    const shownDays = Math.max(days, 15);
+
+    const counter = document.getElementById('days-together');
+    if (counter) {
+        counter.textContent = shownDays;
+    }
+
+    const phraseDayEl = document.querySelector('.phrase-day');
+    if (phraseDayEl) {
+        const phraseDay = (shownDays - 1) % window.PHRASES.length + 1;
+        phraseDayEl.textContent = `Frase del día ${phraseDay}`;
+    }
+}
 
 setInterval(updateDayCounter, 60000);
 updateDayCounter();
@@ -573,3 +574,4 @@ function openHistory() {
 function closeHistory() {
   document.getElementById('history-modal').style.display = 'none';
 }
+
