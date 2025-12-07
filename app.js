@@ -1,6 +1,6 @@
 /* ===== CONFIGURACIÓN ===== */
 const SECRET_PIN_HASH = "f0e3bd92f157f9b73ede82834286e7cea4044134b39d92ac3ee7e56392194241";
-const WAIT_HOURS = 0.01; // solo para pruebas
+const WAIT_HOURS = 12; // solo para pruebas
 const MS = 60 * 60 * 1000;
 
 /* ===== FECHAS IMPORTANTES ===== */
@@ -735,5 +735,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
 
 
