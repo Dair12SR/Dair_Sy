@@ -1,0 +1,284 @@
+.upload-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 80px;
+  background: linear-gradient(135deg, #ff6bd9, #ff8fab);
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 107, 217, 0.4);
+  transition: all 0.3s ease;
+  z-index: 999;
+  touch-action: manipulation;
+}
+
+@media (max-width: 480px) {
+  .upload-btn {
+    bottom: 15px;
+    right: 15px;
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+}
+
+.upload-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 107, 217, 0.6);
+}
+
+.upload-btn:active {
+  transform: translateY(-1px) scale(0.96);
+}
+
+.upload-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10001;
+  padding: 20px;
+}
+
+@media (max-width: 480px) {
+  .upload-modal {
+    padding: 15px;
+  }
+}
+
+.upload-modal.active {
+  display: flex;
+}
+
+.upload-modal-content {
+  background: white;
+  padding: 35px;
+  border-radius: 20px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+@media (max-width: 480px) {
+  .upload-modal-content {
+    padding: 25px 20px;
+    border-radius: 15px;
+    width: 95%;
+  }
+}
+
+.upload-modal-content h2 {
+  color: #ff6bd9;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+@media (max-width: 480px) {
+  .upload-modal-content h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+.upload-input-group {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 480px) {
+  .upload-input-group {
+    margin-bottom: 15px;
+  }
+}
+
+.upload-input-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+@media (max-width: 480px) {
+  .upload-input-group label {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+}
+
+.upload-modal-content input[type="file"],
+.upload-modal-content input[type="text"],
+.upload-modal-content input[type="date"] {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ffd1dc;
+  border-radius: 10px;
+  font-size: 14px;
+  box-sizing: border-box;
+  color: #333;
+  background: white;
+}
+
+@media (max-width: 480px) {
+
+  .upload-modal-content input[type="file"],
+  .upload-modal-content input[type="text"],
+  .upload-modal-content input[type="date"] {
+    padding: 10px;
+    font-size: 13px;
+    border-radius: 8px;
+  }
+}
+
+.upload-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+@media (max-width: 480px) {
+  .upload-buttons {
+    gap: 10px;
+    margin-top: 20px;
+    flex-direction: column;
+  }
+}
+
+.upload-btn-primary,
+.upload-btn-secondary {
+  flex: 1;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  touch-action: manipulation;
+}
+
+@media (max-width: 480px) {
+
+  .upload-btn-primary,
+  .upload-btn-secondary {
+    padding: 13px;
+    font-size: 15px;
+    border-radius: 8px;
+  }
+}
+
+.upload-btn-primary {
+  background: linear-gradient(135deg, #ff6bd9, #ff8fab);
+  color: white;
+}
+
+.upload-btn-primary:active {
+  transform: scale(0.96);
+}
+
+.upload-btn-secondary {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.upload-btn-secondary:active {
+  background: #e0e0e0;
+  transform: scale(0.96);
+}
+
+.upload-progress {
+  display: none;
+  margin-top: 20px;
+}
+
+@media (max-width: 480px) {
+  .upload-progress {
+    margin-top: 15px;
+  }
+}
+
+.upload-progress.active {
+  display: block;
+}
+
+.upload-progress-bar {
+  width: 100%;
+  height: 12px;
+  background: #f0f0f0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 480px) {
+  .upload-progress-bar {
+    height: 10px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+  }
+}
+
+.upload-progress-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #ff6bd9, #ff8fab);
+  transition: width 0.3s ease;
+}
+
+.upload-status {
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+}
+
+@media (max-width: 480px) {
+  .upload-status {
+    font-size: 13px;
+  }
+}
+
+.upload-preview {
+  margin-top: 15px;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .upload-preview {
+    margin-top: 12px;
+  }
+}
+
+.upload-preview img {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 10px;
+}
+
+@media (max-width: 480px) {
+  .upload-preview img {
+    max-height: 150px;
+    border-radius: 8px;
+  }
+}
+
+/* Mejoras táctiles adicionales */
+@media (hover: none) and (pointer: coarse) {
+  .upload-modal-content input[type="file"] {
+    min-height: 44px;
+  }
+
+  .upload-btn-primary,
+  .upload-btn-secondary {
+    min-height: 44px;
+  }
+}

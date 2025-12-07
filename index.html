@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>💜 Libro Secreto para Silvia 💜</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💜</text></svg>">
+
+    <!-- CSS Externo -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="upload.css">
+</head>
+
+<body>
+    <!-- ============ NOTIFICACIÓN SUPERIOR ============ -->
+    <div id="top-notice">
+        <span id="top-notice-text">Frase nueva para mi esposita hermosa 💕</span>
+    </div>
+
+    <!-- ============ PANTALLA DE BLOQUEO (PIN) ============ -->
+    <div id="gate">
+        <div class="gate-box">
+            <h1 class="gate-title">💜 Libro Secreto para Silvia 💜</h1>
+            <p class="gate-subtitle">para mi princesa hermosa Silvia 💕</p>
+
+            <label class="pin-label">Ingresa el código secreto</label>
+            <input type="password" id="pin" readonly maxlength="4">
+
+            <div class="numpad">
+                <button class="num-btn" data-k="1">1</button>
+                <button class="num-btn" data-k="2">2</button>
+                <button class="num-btn" data-k="3">3</button>
+                <button class="num-btn" data-k="4">4</button>
+                <button class="num-btn" data-k="5">5</button>
+                <button class="num-btn" data-k="6">6</button>
+                <button class="num-btn" data-k="7">7</button>
+                <button class="num-btn" data-k="8">8</button>
+                <button class="num-btn" data-k="9">9</button>
+                <button class="num-btn" id="clear">Borr</button>
+                <button class="num-btn" data-k="0">0</button>
+                <button class="num-btn" id="enter">Entr</button>
+            </div>
+
+            <div id="toast"></div>
+            <p class="gate-footer">Este libro se abre solo para ti ✨</p>
+        </div>
+    </div>
+
+    <!-- ============ LIBRO PRINCIPAL ============ -->
+    <div id="bookView">
+        <div id="book" class="book-pages">
+
+            <!-- ===== PÁGINA IZQUIERDA ===== -->
+            <div class="page page-left">
+                <div class="page-content">
+                    <h2 class="book-title">Mensaje secreto</h2>
+                    <p class="book-subtitle">para mi princesa hermosa Silvia 💖</p>
+
+                    <!-- Contador de días -->
+                    <div class="day-counter">
+                        <div class="number" id="days-together">2558</div>
+                        <div class="label">días juntos 💕</div>
+                        <p class="phrase-day">Frase del día 2558</p>
+                    </div>
+
+                    <!-- Frase con etiqueta de día -->
+                    <div class="phrase-container">
+                        <div class="phrase-day-label">Día 52</div>
+                        <p id="phrase">Cargando tu mensaje...</p>
+                    </div>
+
+                    <!-- Reacciones -->
+                    <div class="reactions">
+                        <p>¿Cómo te hace sentir?</p>
+                        <div class="reaction-btns">
+                            <button onclick="addReaction('❤️')" class="reaction-btn">❤️</button>
+                            <button onclick="addReaction('😍')" class="reaction-btn">😍</button>
+                            <button onclick="addReaction('🥰')" class="reaction-btn">🥰</button>
+                            <button onclick="addReaction('✨')" class="reaction-btn">✨</button>
+                            <button onclick="addReaction('💕')" class="reaction-btn">💕</button>
+                            <button onclick="addReaction('☀️')" class="reaction-btn">☀️</button>
+                        </div>
+                        <div id="reaction-display"></div>
+                    </div>
+
+                    <!-- Botones de acción -->
+                    <div class="book-actions">
+                        <button id="more" class="btn-primary">💕 Otra frase</button>
+                        <button onclick="openHistory()" class="btn-secondary">📊 Historial</button>
+                    </div>
+
+                    <button id="lock" class="btn-danger">🔒 Cerrar libro</button>
+                </div>
+            </div>
+
+            <!-- ===== PÁGINA DERECHA ===== -->
+            <div class="page page-right">
+                <div class="page-content">
+                    <h3 class="page-title">Este libro se abre solo para ti ✨</h3>
+
+                    <!-- Contador próximo encuentro -->
+                    <div class="next-meeting">
+                        <div class="meeting-icon">⏰ Próximo encuentro</div>
+                        <div class="meeting-countdown">
+                            <div class="time-box">
+                                <div class="time-number" id="years-together">4</div>
+                                <div class="time-label">AÑOS</div>
+                            </div>
+                            <div class="time-box">
+                                <div class="time-number" id="months-extra">10</div>
+                                <div class="time-label">MESES</div>
+                            </div>
+                            <div class="time-box">
+                                <div class="time-number" id="days-extra">16</div>
+                                <div class="time-label">DÍAS</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botones extras -->
+                    <div class="extra-actions">
+                        <button onclick="openGallery()" class="btn-extra">📷 Ver Recuerdos</button>
+                        <button onclick="openUploadModal()" class="btn-extra">📸 Subir Foto</button>
+                    </div>
+                </div>
+
+                <!-- Decoración flor -->
+                <div class="flower-decoration">🌸</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ MODAL: TIEMPO DE ESPERA ============ -->
+    <div id="modal">
+        <div id="modalBox">
+            <h3>⏰ Próximo encuentro</h3>
+            <p>Mi princesa Silvia 💜, el destino te revelará la próxima frase dentro de</p>
+            <div id="remain">12:00:00</div>
+            <p>horas 🌙✨</p>
+            <button id="m-ok" class="btn-primary">Entendido</button>
+        </div>
+    </div>
+
+    <!-- ============ MODAL: GALERÍA ============ -->
+    <div id="gallery-modal" class="modal-overlay">
+        <div class="gallery-content">
+            <div class="gallery-header">
+                <h3>📸 Nuestros Recuerdos 💕</h3>
+                <button class="close-btn" onclick="closeGallery()">×</button>
+            </div>
+            <div id="gallery-grid"></div>
+        </div>
+    </div>
+
+    <!-- ============ MODAL: HISTORIAL ============ -->
+    <div id="history-modal" class="modal-overlay">
+        <div class="history-content">
+            <div class="history-header">
+                <h3>📖 Frases anteriores</h3>
+                <button class="close-btn" onclick="closeHistory()">×</button>
+            </div>
+            <div id="history-list"></div>
+        </div>
+    </div>
+
+    <!-- ============ MODAL: SUBIR FOTO ============ -->
+    <div class="upload-modal" id="upload-modal">
+        <div class="upload-modal-content">
+            <h2>📷 Subir Nueva Foto</h2>
+
+            <div class="upload-input-group">
+                <label>Seleccionar foto:</label>
+                <input type="file" id="photo-file" accept="image/*">
+            </div>
+
+            <div class="upload-preview" id="upload-preview"></div>
+
+            <div class="upload-input-group">
+                <label>Descripción (opcional):</label>
+                <input type="text" id="photo-caption" placeholder="Ej: Nuestro día especial">
+            </div>
+
+            <div class="upload-input-group">
+                <label>Fecha:</label>
+                <input type="date" id="photo-date">
+            </div>
+
+            <div class="upload-buttons">
+                <button class="upload-btn-primary" onclick="uploadPhoto()">Subir</button>
+                <button class="upload-btn-secondary" onclick="closeUploadModal()">Cancelar</button>
+            </div>
+
+            <div class="upload-progress" id="upload-progress">
+                <div class="upload-progress-bar">
+                    <div class="upload-progress-fill" id="upload-progress-fill"></div>
+                </div>
+                <div class="upload-status" id="upload-status">Subiendo...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ AUDIO ============ -->
+    <audio id="ding" src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3"></audio>
+
+    <!-- MÚSICA DE FONDO - Pablo Alborán -->
+    <audio id="background-music" loop preload="auto">
+        <source src="Pablo Alboran - Donde Está El Amor ft. Jesse & Joy (Videoclip oficial).mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- ============ SCRIPTS ============ -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="frases_silvia.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
